@@ -16,200 +16,359 @@ import {
 } from "@windmill/react-ui";
 const baseURL = process.env.REACT_APP_API_URL;
 
-// const data = {
-//   id: "1",
-//   user_id: "1",
-//   name: "John Doe",
-//   last_activity: "succuss",
-//   last_activity_time: "10:00",
-//   attributes: {
-//     referrer: "direct",
-//     browser_timezone: -5.5,
-//     browser_language: "en-GB",
-//     landing_page: "http://localhost:3001/",
-//     screen_height: 900,
-//     screen_width: 1440,
-//     last_visit: 1660518962,
-//     pageviews: 4,
-//     first_website_visit: "2022-08-12T22:33:10.868Z",
-//     sign_up_button: "green-button",
-//     converted_at: "2022-08-12T22:33:10.868Z",
-//     conversion_page: "http://localhost:3001/",
-//     visits_at_conversion: 0,
-//     pageviews_before_conversion: 1,
-//     visits: [
-//       {
-//         id: 1,
-//         referrer: "direct",
-//         browser_timezone: -5.5,
-//         browser_language: "en-GB",
-//         landing_page: "http://localhost:3001/",
-//         screen_height: 900,
-//         screen_width: 1440,
-//         date: "3/10/2022",
-//         index: 1,
-//         saree_pattern: "l2",
-//         saree_color: "green",
-//         blouse_Color: "sss",
-//         activity: "save"
-//       },
-//       {
-//         id: 2,
-//         referrer: "direct",
-//         browser_timezone: -5.5,
-//         browser_language: "en-GB",
-//         landing_page: "http://localhost:3001/",
-//         screen_height: 900,
-//         screen_width: 1440,
-//         date: "3/23/2022",
-//         index: 2,
-//         saree_pattern: "l3",
-//         saree_color: "red",
-//         activity: "success"
-//       },
-//       {
-//         id: 3,
-//         referrer: "direct",
-//         browser_timezone: -5.5,
-//         browser_language: "en-GB",
-//         landing_page: "http://localhost:3001/",
-//         screen_height: 900,
-//         screen_width: 1440,
-//         date: "9/26/2021",
-//         index: 3,
-//         saree_pattern: "l1",
-//         saree_color: "blue",
-//         activity: "success"
-//       },
-//       {
-//         id: 4,
-//         referrer: "direct",
-//         browser_timezone: -5.5,
-//         browser_language: "en-GB",
-//         landing_page: "http://localhost:3001/",
-//         screen_height: 900,
-//         screen_width: 1440,
-//         date: "1/15/2022",
-//         index: 4,
-//         saree_pattern: "l2",
-//         saree_color: "blue",
-//         activity: "exploring"
-//       },
-//       {
-//         id: 5,
-//         referrer: "direct",
-//         browser_timezone: -5.5,
-//         browser_language: "en-GB",
-//         landing_page: "http://localhost:3001/",
-//         screen_height: 900,
-//         screen_width: 1440,
-//         date: "10/12/2021",
-//         index: 5,
-//         saree_pattern: "l3",
-//         saree_color: "blue",
-//         activity: "success"
-//       },
-//       {
-//         id: 6,
-//         referrer: "direct",
-//         browser_timezone: -5.5,
-//         browser_language: "en-GB",
-//         landing_page: "http://localhost:3001/",
-//         screen_height: 900,
-//         screen_width: 1440,
-//         date: "3/30/2022",
-//         index: 6,
-//         saree_pattern: "l1",
-//         saree_color: "blue",
-//         activity: "success"
-//       },
-//       {
-//         id: 7,
-//         referrer: "direct",
-//         browser_timezone: -5.5,
-//         browser_language: "en-GB",
-//         landing_page: "http://localhost:3001/",
-//         screen_height: 900,
-//         screen_width: 1440,
-//         date: "11/25/2021",
-//         index: 7,
-//         saree_pattern: "l3",
-//         saree_color: "red",
-//         activity: "share"
-//       },
-//       {
-//         id: 8,
-//         referrer: "direct",
-//         browser_timezone: -5.5,
-//         browser_language: "en-GB",
-//         landing_page: "http://localhost:3001/",
-//         screen_height: 900,
-//         screen_width: 1440,
-//         date: "6/21/2022",
-//         index: 8,
-//         saree_pattern: "l3",
-//         saree_color: "blue",
-//         activity: "success"
-//       },
-//       {
-//         id: 9,
-//         referrer: "direct",
-//         browser_timezone: -5.5,
-//         browser_language: "en-GB",
-//         landing_page: "http://localhost:3001/",
-//         screen_height: 900,
-//         screen_width: 1440,
-//         date: "4/14/2022",
-//         index: 9,
-//         saree_pattern: "l3",
-//         saree_color: "red",
-//         activity: "success"
-//       },
-//       {
-//         id: 10,
-//         referrer: "direct",
-//         browser_timezone: -5.5,
-//         browser_language: "en-GB",
-//         landing_page: "http://localhost:3001/",
-//         screen_height: 900,
-//         screen_width: 1440,
-//         date: "5/13/2022",
-//         index: 10,
-//         saree_pattern: "l1",
-//         saree_color: "red",
-//         activity: "share"
-//       },
-//       {
-//         id: 11,
-//         referrer: "direct",
-//         browser_timezone: -5.5,
-//         browser_language: "en-GB",
-//         landing_page: "http://localhost:3001/",
-//         screen_height: 900,
-//         screen_width: 1440,
-//         date: "6/26/2022",
-//         index: 11,
-//         saree_pattern: "l1",
-//         saree_color: "green",
-//         activity: "save"
-//       },
-//       {
-//         id: 12,
-//         referrer: "direct",
-//         browser_timezone: -5.5,
-//         browser_language: "en-GB",
-//         landing_page: "http://localhost:3001/",
-//         screen_height: 900,
-//         screen_width: 1440,
-//         date: "9/1/2021",
-//         index: 12,
-//         saree_pattern: "l1",
-//         saree_color: "blue",
-//         activity: "exploring"
-//       }
-//     ]
-//   }
-// };
+// {
+//   "id": "7dc383d8-4e65-496e-b57d-e26606cb0789",
+//   "name": "e401f3a984ea392c80fe917e884ca912",
+//   "product_id": "14461",
+//   "last_activity": "color_change_red",
+//   "user_id": "e401f3a984ea392c80fe917e884ca912",
+//   "analytics_attribute": {
+//       "referrer": "direct",
+//       "browser_timezone": -5.5,
+//       "browser_language": "en-IN",
+//       "landing_page": "http://127.0.0.1:5500/main.html",
+//       "screen_height": 900,
+//       "screen_width": 1440,
+//       "last_visit": 1661452628,
+//       "pageviews": 1,
+//       "first_website_visit": "2022-08-25T18:36:05.954Z",
+//       "product_id": "",
+//       "visits": [
+//           {
+//               "referrer": "direct",
+//               "browser_timezone": -5.5,
+//               "browser_language": "en-IN",
+//               "landing_page": "http://127.0.0.1:5500/main.html",
+//               "screen_height": 900,
+//               "screen_width": 1440,
+//               "id": "931a",
+//               "date": "2022-08-25T18:36:07.017Z"
+//           },
+//           {
+//               "referrer": "direct",
+//               "browser_timezone": -5.5,
+//               "browser_language": "en-IN",
+//               "landing_page": "http://127.0.0.1:5500/main.html",
+//               "screen_height": 900,
+//               "screen_width": 1440,
+//               "id": "7cfb",
+//               "date": "2022-08-25T18:36:13.657Z",
+//               "index": 1,
+//               "saree_pattern": "pattern2",
+//               "saree_color": "red",
+//               "blouse_Color": "red",
+//               "activity": "color_change_red"
+//           },
+//           {
+//               "referrer": "direct",
+//               "browser_timezone": -5.5,
+//               "browser_language": "en-IN",
+//               "landing_page": "http://127.0.0.1:5500/main.html",
+//               "screen_height": 900,
+//               "screen_width": 1440,
+//               "id": "8ac5",
+//               "date": "2022-08-25T18:36:16.056Z",
+//               "index": 2,
+//               "saree_pattern": "pattern2",
+//               "saree_color": "black",
+//               "blouse_Color": "red",
+//               "activity": "color_change_black"
+//           },
+//           {
+//               "referrer": "direct",
+//               "browser_timezone": -5.5,
+//               "browser_language": "en-IN",
+//               "landing_page": "http://127.0.0.1:5500/main.html",
+//               "screen_height": 900,
+//               "screen_width": 1440,
+//               "id": "6b50",
+//               "date": "2022-08-25T18:36:16.856Z",
+//               "index": 3,
+//               "saree_pattern": "pattern3",
+//               "saree_color": "black",
+//               "blouse_Color": "red",
+//               "activity": "pattern_change_pattern_3"
+//           },
+//           {
+//               "referrer": "direct",
+//               "browser_timezone": -5.5,
+//               "browser_language": "en-IN",
+//               "landing_page": "http://127.0.0.1:5500/main.html",
+//               "screen_height": 900,
+//               "screen_width": 1440,
+//               "id": "7c48",
+//               "date": "2022-08-25T18:36:17.669Z",
+//               "index": 4,
+//               "saree_pattern": "pattern1",
+//               "saree_color": "black",
+//               "blouse_Color": "red",
+//               "activity": "pattern_change_pattern_1"
+//           },
+//           {
+//               "referrer": "direct",
+//               "browser_timezone": -5.5,
+//               "browser_language": "en-IN",
+//               "landing_page": "http://127.0.0.1:5500/main.html",
+//               "screen_height": 900,
+//               "screen_width": 1440,
+//               "id": "fcdc",
+//               "date": "2022-08-25T18:36:18.386Z",
+//               "index": 5,
+//               "saree_pattern": "pattern2",
+//               "saree_color": "black",
+//               "blouse_Color": "red",
+//               "activity": "pattern_change_pattern_2"
+//           },
+//           {
+//               "referrer": "direct",
+//               "browser_timezone": -5.5,
+//               "browser_language": "en-IN",
+//               "landing_page": "http://127.0.0.1:5500/main.html",
+//               "screen_height": 900,
+//               "screen_width": 1440,
+//               "id": "f091",
+//               "date": "2022-08-25T18:36:20.457Z",
+//               "index": 6,
+//               "saree_pattern": "pattern2",
+//               "saree_color": "blue",
+//               "blouse_Color": "red",
+//               "activity": "color_change_blue"
+//           },
+//           {
+//               "referrer": "direct",
+//               "browser_timezone": -5.5,
+//               "browser_language": "en-IN",
+//               "landing_page": "http://127.0.0.1:5500/main.html",
+//               "screen_height": 900,
+//               "screen_width": 1440,
+//               "id": "207d",
+//               "date": "2022-08-25T18:36:21.185Z",
+//               "index": 7,
+//               "saree_pattern": "pattern3",
+//               "saree_color": "blue",
+//               "blouse_Color": "red",
+//               "activity": "pattern_change_pattern_3"
+//           },
+//           {
+//               "referrer": "direct",
+//               "browser_timezone": -5.5,
+//               "browser_language": "en-IN",
+//               "landing_page": "http://127.0.0.1:5500/main.html",
+//               "screen_height": 900,
+//               "screen_width": 1440,
+//               "id": "e40e",
+//               "date": "2022-08-25T18:36:22.271Z",
+//               "index": 8,
+//               "saree_pattern": "pattern3",
+//               "saree_color": "blue",
+//               "blouse_Color": "red",
+//               "activity": "save"
+//           },
+//           {
+//               "referrer": "direct",
+//               "browser_timezone": -5.5,
+//               "browser_language": "en-IN",
+//               "landing_page": "http://127.0.0.1:5500/main.html",
+//               "screen_height": 900,
+//               "screen_width": 1440,
+//               "id": "94ad",
+//               "date": "2022-08-25T18:36:44.552Z",
+//               "index": 9,
+//               "saree_pattern": "pattern3",
+//               "saree_color": "red",
+//               "blouse_Color": "red",
+//               "activity": "color_change_red"
+//           },
+//           {
+//               "referrer": "direct",
+//               "browser_timezone": -5.5,
+//               "browser_language": "en-IN",
+//               "landing_page": "http://127.0.0.1:5500/main.html",
+//               "screen_height": 900,
+//               "screen_width": 1440,
+//               "id": "b68b",
+//               "date": "2022-08-25T18:36:50.220Z",
+//               "index": 10,
+//               "saree_pattern": "pattern3",
+//               "saree_color": "blue",
+//               "blouse_Color": "red",
+//               "activity": "color_change_blue"
+//           },
+//           {
+//               "referrer": "direct",
+//               "browser_timezone": -5.5,
+//               "browser_language": "en-IN",
+//               "landing_page": "http://127.0.0.1:5500/main.html",
+//               "screen_height": 900,
+//               "screen_width": 1440,
+//               "id": "c9ca",
+//               "date": "2022-08-25T18:36:51.284Z",
+//               "index": 11,
+//               "saree_pattern": "pattern3",
+//               "saree_color": "black",
+//               "blouse_Color": "red",
+//               "activity": "color_change_black"
+//           },
+//           {
+//               "referrer": "direct",
+//               "browser_timezone": -5.5,
+//               "browser_language": "en-IN",
+//               "landing_page": "http://127.0.0.1:5500/main.html",
+//               "screen_height": 900,
+//               "screen_width": 1440,
+//               "id": "1742",
+//               "date": "2022-08-25T18:36:54.319Z",
+//               "index": 12,
+//               "saree_pattern": "pattern2",
+//               "saree_color": "black",
+//               "blouse_Color": "red",
+//               "activity": "pattern_change_pattern_2"
+//           },
+//           {
+//               "referrer": "direct",
+//               "browser_timezone": -5.5,
+//               "browser_language": "en-IN",
+//               "landing_page": "http://127.0.0.1:5500/main.html",
+//               "screen_height": 900,
+//               "screen_width": 1440,
+//               "id": "5377",
+//               "date": "2022-08-25T18:36:54.819Z",
+//               "index": 13,
+//               "saree_pattern": "pattern1",
+//               "saree_color": "black",
+//               "blouse_Color": "red",
+//               "activity": "pattern_change_pattern_1"
+//           },
+//           {
+//               "referrer": "direct",
+//               "browser_timezone": -5.5,
+//               "browser_language": "en-IN",
+//               "landing_page": "http://127.0.0.1:5500/main.html",
+//               "screen_height": 900,
+//               "screen_width": 1440,
+//               "id": "7d99",
+//               "date": "2022-08-25T18:36:55.635Z",
+//               "index": 14,
+//               "saree_pattern": "pattern1",
+//               "saree_color": "red",
+//               "blouse_Color": "red",
+//               "activity": "color_change_red"
+//           },
+//           {
+//               "referrer": "direct",
+//               "browser_timezone": -5.5,
+//               "browser_language": "en-IN",
+//               "landing_page": "http://127.0.0.1:5500/main.html",
+//               "screen_height": 900,
+//               "screen_width": 1440,
+//               "id": "7257",
+//               "date": "2022-08-25T18:36:56.552Z",
+//               "index": 15,
+//               "saree_pattern": "pattern1",
+//               "saree_color": "blue",
+//               "blouse_Color": "red",
+//               "activity": "color_change_blue"
+//           },
+//           {
+//               "referrer": "direct",
+//               "browser_timezone": -5.5,
+//               "browser_language": "en-IN",
+//               "landing_page": "http://127.0.0.1:5500/main.html",
+//               "screen_height": 900,
+//               "screen_width": 1440,
+//               "id": "0a25",
+//               "date": "2022-08-25T18:36:57.968Z",
+//               "index": 16,
+//               "saree_pattern": "pattern1",
+//               "saree_color": "blue",
+//               "blouse_Color": "red",
+//               "activity": "save"
+//           },
+//           {
+//               "referrer": "direct",
+//               "browser_timezone": -5.5,
+//               "browser_language": "en-IN",
+//               "landing_page": "http://127.0.0.1:5500/main.html",
+//               "screen_height": 900,
+//               "screen_width": 1440,
+//               "id": "d9d9",
+//               "date": "2022-08-25T18:36:59.702Z",
+//               "index": 17,
+//               "saree_pattern": "pattern1",
+//               "saree_color": "blue",
+//               "blouse_Color": "red",
+//               "activity": "share"
+//           },
+//           {
+//               "referrer": "direct",
+//               "browser_timezone": -5.5,
+//               "browser_language": "en-IN",
+//               "landing_page": "http://127.0.0.1:5500/main.html",
+//               "screen_height": 900,
+//               "screen_width": 1440,
+//               "id": "07b8",
+//               "date": "2022-08-25T18:37:02.656Z",
+//               "index": 18,
+//               "saree_pattern": "pattern2",
+//               "saree_color": "blue",
+//               "blouse_Color": "red",
+//               "activity": "pattern_change_pattern_2"
+//           },
+//           {
+//               "referrer": "direct",
+//               "browser_timezone": -5.5,
+//               "browser_language": "en-IN",
+//               "landing_page": "http://127.0.0.1:5500/main.html",
+//               "screen_height": 900,
+//               "screen_width": 1440,
+//               "id": "cd11",
+//               "date": "2022-08-25T18:37:03.355Z",
+//               "index": 19,
+//               "saree_pattern": "pattern3",
+//               "saree_color": "blue",
+//               "blouse_Color": "red",
+//               "activity": "pattern_change_pattern_3"
+//           },
+//           {
+//               "referrer": "direct",
+//               "browser_timezone": -5.5,
+//               "browser_language": "en-IN",
+//               "landing_page": "http://127.0.0.1:5500/main.html",
+//               "screen_height": 900,
+//               "screen_width": 1440,
+//               "id": "1223",
+//               "date": "2022-08-25T18:37:06.019Z",
+//               "index": 20,
+//               "saree_pattern": "pattern3",
+//               "saree_color": "black",
+//               "blouse_Color": "red",
+//               "activity": "color_change_black"
+//           },
+//           {
+//               "referrer": "direct",
+//               "browser_timezone": -5.5,
+//               "browser_language": "en-IN",
+//               "landing_page": "http://127.0.0.1:5500/main.html",
+//               "screen_height": 900,
+//               "screen_width": 1440,
+//               "id": "a94a",
+//               "date": "2022-08-25T18:37:08.218Z",
+//               "index": 21,
+//               "saree_pattern": "pattern3",
+//               "saree_color": "red",
+//               "blouse_Color": "red",
+//               "activity": "color_change_red"
+//           }
+//       ],
+//       "converted_at": "2022-08-25T18:37:08.219Z",
+//       "conversion_page": "http://127.0.0.1:5500/main.html",
+//       "visits_at_conversion": 22,
+//       "pageviews_before_conversion": 1
+//   },
+//   "last_activity_at": "2022-08-25T18:37:08.219Z",
+//   "createdAt": "2022-08-25T18:36:07.190Z",
+//   "updatedAt": "2022-08-25T18:37:08.393Z"
+// }
 
 function Dashboard() {
   const [analytics, setAnalytics] = useState(null);
@@ -279,17 +438,16 @@ function Dashboard() {
       {analytics && (
         <div>
           <div className="grid gap-6 mt-8 mb-8 md:grid-cols-2 xl:grid-cols-4">
-            <InfoCard title="name" value={analytics?.name}></InfoCard>
+            {/* <InfoCard title="name" value={analytics?.name}></InfoCard> */}
             <InfoCard title="id" value={analytics?.id}></InfoCard>
             <InfoCard title="user id" value={analytics?.user_id}></InfoCard>
-            <br />
             <InfoCard
               title="Last Activity"
               value={analytics?.last_activity}
             ></InfoCard>
             <InfoCard
               title="Last Activity time"
-              value={analytics?.last_activity_time}
+              value={analytics?.last_activity_at}
             ></InfoCard>
             <InfoCard
               title="Screen Size"
@@ -304,8 +462,8 @@ function Dashboard() {
               value={analytics?.analytics_attribute.pageviews}
             ></InfoCard>{" "}
             <InfoCard
-              title="Total activity"
-              value={analytics?.analytics_attribute.visits_at_conversion}
+              title="Time zone"
+              value={analytics?.analytics_attribute.browser_timezone}
             ></InfoCard>
             <InfoCard
               title="First website visit"
@@ -321,6 +479,7 @@ function Dashboard() {
                   <tr>
                     <TableCell>Index</TableCell>
                     <TableCell>Saree pattern</TableCell>
+                    <TableCell>Blouse Color</TableCell>
                     <TableCell>saree Color</TableCell>
                     <TableCell>Activity</TableCell>
                     <TableCell>Date</TableCell>
@@ -339,6 +498,9 @@ function Dashboard() {
                       </TableCell>
                       <TableCell>
                         <span className="text-sm">{visit.saree_pattern}</span>
+                      </TableCell>
+                      <TableCell>
+                        <span className="text-sm">{visit.blouse_Color}</span>
                       </TableCell>
                       <TableCell>
                         <span className="text-sm">{visit.saree_color}</span>

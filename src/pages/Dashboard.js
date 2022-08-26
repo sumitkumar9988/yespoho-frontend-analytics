@@ -1,6 +1,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import axios from "axios";
+import { useSelector } from "react-redux";
 // import InfoCard from "../components/Cards/InfoCard";
 import { Link } from "react-router-dom";
 import PageTitle from "../components/Typography/PageTitle";
@@ -71,6 +72,13 @@ function Dashboard() {
     }
   };
 
+  const { user: authUser } = useSelector((x) => x.auth);
+  console.log("protected route", authUser);
+  if (!authUser) {
+    // not logged in so redirect to login page with the return url
+    window.location.href = "/";
+  }
+
   return (
     <>
       <PageTitle>All website visit</PageTitle>
@@ -114,7 +122,7 @@ function Dashboard() {
           <Table>
             <TableHeader>
               <tr>
-                <TableCell>User</TableCell>
+                <TableCell>User ID</TableCell>
                 <TableCell>Last Activity</TableCell>
                 <TableCell>Date</TableCell>
               </tr>
