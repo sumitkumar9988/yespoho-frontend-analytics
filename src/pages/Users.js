@@ -1,6 +1,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import date from "date-and-time";
 import InfoCard from "../components/Cards/InfoCard";
 import { useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
@@ -445,10 +446,15 @@ function Dashboard() {
               title="Last Activity"
               value={analytics?.last_activity}
             ></InfoCard>
-            <InfoCard
-              title="Last Activity time"
-              value={analytics?.last_activity_at}
-            ></InfoCard>
+            {analytics && (
+              <InfoCard
+                title="First website visit"
+                value={date.format(
+                  new Date(analytics.last_activity_at),
+                  "YYYY/MM/DD HH:mm:ss"
+                )}
+              ></InfoCard>
+            )}
             <InfoCard
               title="Screen Size"
               value={`${analytics?.analytics_attribute.screen_width}*${analytics.analytics_attribute.screen_height}`}
@@ -465,10 +471,15 @@ function Dashboard() {
               title="Time zone"
               value={analytics?.analytics_attribute.browser_timezone}
             ></InfoCard>
-            <InfoCard
-              title="First website visit"
-              value={analytics?.analytics_attribute.first_website_visit}
-            ></InfoCard>
+            {analytics && (
+              <InfoCard
+                title="First website visit"
+                value={date.format(
+                  new Date(analytics.analytics_attribute.first_website_visit),
+                  "YYYY/MM/DD HH:mm:ss"
+                )}
+              ></InfoCard>
+            )}
           </div>
 
           <PageTitle>Visits</PageTitle>
@@ -513,7 +524,10 @@ function Dashboard() {
                       </TableCell>
                       <TableCell>
                         <span className="text-sm">
-                          {new Date(visit.date).toLocaleDateString()}
+                          {date.format(
+                            new Date(visit.date),
+                            "YYYY/MM/DD HH:mm:ss"
+                          )}
                         </span>
                       </TableCell>
                     </TableRow>
