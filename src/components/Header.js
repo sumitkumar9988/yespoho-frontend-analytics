@@ -45,7 +45,7 @@ function Header() {
   // if (!authUser) return null;
 
   return (
-    <header className="z-40 py-4 bg-white shadow-bottom dark:bg-gray-800">
+    <header className="z-40 py-4 bg-primary shadow-bottom">
       <div className="container flex items-center justify-between h-full px-6 mx-auto text-purple-600 dark:text-purple-300">
         {/* <!-- Mobile hamburger --> */}
         <button

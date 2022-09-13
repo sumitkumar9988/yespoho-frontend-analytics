@@ -124,6 +124,7 @@ function Dashboard() {
               <tr>
                 <TableCell>User ID</TableCell>
                 <TableCell>Last Activity</TableCell>
+                <TableCell>Product ID</TableCell>
                 <TableCell>Date</TableCell>
               </tr>
             </TableHeader>
@@ -147,6 +148,11 @@ function Dashboard() {
                   <TableCell>
                     <Badge type={getStatus(user.last_activity)}>
                       {user.last_activity}
+                    </Badge>
+                  </TableCell>
+                  <TableCell>
+                    <Badge type={getStatus(user.last_activity)}>
+                      {user.product_id}
                     </Badge>
                   </TableCell>
                   <TableCell>
