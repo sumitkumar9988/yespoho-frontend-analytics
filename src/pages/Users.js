@@ -15,6 +15,7 @@ import {
   TableRow,
   Badge
 } from "@windmill/react-ui";
+import { getDefaultNormalizer } from "@testing-library/react";
 const baseURL = process.env.REACT_APP_API_URL;
 
 // {
@@ -373,6 +374,7 @@ const baseURL = process.env.REACT_APP_API_URL;
 
 function Dashboard() {
   const [analytics, setAnalytics] = useState(null);
+  const [name, setName] = useState(null);
   const [error, setError] = useState(null);
   const [isLoaded, setIsLoaded] = useState(true);
 
@@ -398,7 +400,16 @@ function Dashboard() {
       })
       .then((response) => {
         setAnalytics(response.data);
-        console.log(analytics);
+        return axios.get(`${baseURL}/redirect/user-data`, {
+          headers: {
+            Merchantkey: `yespoho2022sandbox`,
+            Authkey: analytics.user_id,
+            "Content-Type": "application/json"
+          }
+        });
+      })
+      .then((response) => {
+        setName(response.data.guest_data.first_name);
       })
       .catch((error) => {
         setError(error);
@@ -440,6 +451,7 @@ function Dashboard() {
         <div>
           <div className="grid gap-6 mt-8 mb-8 md:grid-cols-2 xl:grid-cols-4">
             {/* <InfoCard title="name" value={analytics?.name}></InfoCard> */}
+            <InfoCard title="Name" value={name}></InfoCard>
             <InfoCard title="id" value={analytics?.id}></InfoCard>
             <InfoCard title="user id" value={analytics?.user_id}></InfoCard>
             <InfoCard
